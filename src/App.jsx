@@ -1,10 +1,5 @@
-import {
-  useAddress,
-  useMetamask,
-  useEditionDrop,
-  useToken,
-  useVote,
-} from "@thirdweb-dev/react";
+import { useAddress, useMetamask, useEditionDrop, useToken, useVote, useNetwork } from "@thirdweb-dev/react";
+import { ChainId } from '@thirdweb-dev/sdk'
 import { useState, useEffect, useMemo } from "react";
 import { AddressZero } from "@ethersproject/constants";
 
@@ -214,7 +209,7 @@ const App = () => {
   if (hasClaimedNFT) {
     return (
       <div className="member-page">
-        <h1>🍪DAO Member Page</h1>
+        <h1>🧋DAO Member Page</h1>
         <p>Congratulations on being a member</p>
         <div>
           <div>
