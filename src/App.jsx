@@ -11,6 +11,7 @@ import { AddressZero } from "@ethersproject/constants";
 const App = () => {
   //third web hooks
   const address = useAddress();
+  const network = useNetwork();
   const connectWithMetamask = useMetamask();
   console.log("👋 Address:", address);
 
@@ -182,6 +183,18 @@ const App = () => {
       setIsClaiming(false);
     }
   };
+
+  if (address && (network?.[0].data.chain.id !== ChainId.Rinkeby)) {
+    return (
+      <div className="unsupported-network">
+        <h2>Please connect to Rinkeby</h2>
+        <p>
+          This dapp only works on the Rinkeby network, please switch networks
+          in your connected wallet.
+        </p>
+      </div>
+    );
+  }
 
   //no wallet connected case
   //calls connectWallet method
